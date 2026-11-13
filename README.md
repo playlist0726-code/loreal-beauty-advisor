@@ -1,3 +1,11 @@
+## Portfolio context
+
+**[Interface demo](https://playlist0726-code.github.io/loreal-beauty-advisor/)** · [Project index](https://playlist0726-code.github.io/projects/) · [Portfolio](https://playlist0726-code.github.io/)
+
+A Global Career Accelerator educational chat-interface project by Junsu (Michael) Kim. **Live AI is not connected:** the instructor-provided Worker endpoint is still needed. The demo shows “Connection pending” and does not invent replies. This is not an official L’Oréal product or client commission. Setup and security requirements below remain applicable.
+
+---
+
 # L'Oréal Beauty Advisor - Project 8
 
 An independent student prototype by Michael Kim. HTML, CSS and beginner-friendly JavaScript; no frontend packages or API keys.
