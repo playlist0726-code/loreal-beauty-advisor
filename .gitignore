@@ -1,2 +1,8 @@
-# Secrets file containing API keys
+# Never commit secrets or private local files.
 secrets.js
+secret.js
+.env
+.env.*
+.dev.vars*
+.DS_Store
+node_modules/

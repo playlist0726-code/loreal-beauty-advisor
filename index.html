@@ -1,64 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <div class="page-wrapper">
-      <!------- Header / Branding ------->
-      <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
-      </header>
-
-      <!------- Chat Area ------->
-      <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
-          </div>
-
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
-          </form>
-        </section>
-      </main>
-
-      <!------- Footer Links ------->
-      <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
-        </nav>
-      </footer>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A student-built L'Oréal beauty advisor for personalized product discovery and routines.">
+  <!-- Add the class-provided Cloudflare Worker URL here. Never add an API key. -->
+  <meta name="chat-endpoint" content="">
+  <title>L'Oréal | Beauty, in conversation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="L'Oréal beauty advisor home"><img src="img/loreal-logo.png" alt="L'Oréal" width="145" height="44"></a>
+    <span class="header-label">BEAUTY ADVISOR <span class="red-dot" aria-hidden="true"></span></span>
+    <button id="resetBtn" class="quiet" type="button">New conversation <span aria-hidden="true">↗</span></button>
+  </header>
+  <main>
+    <aside class="intro">
+      <p class="eyebrow">YOUR BEAUTY. YOUR WAY.</p>
+      <h1>Beauty, in<br><em>conversation.</em></h1>
+      <p class="intro-copy">A little guidance. A routine that feels like you. Discover L'Oréal beauty with your personal AI advisor.</p>
+      <div class="rule"></div>
+      <p class="eyebrow">WHERE SHALL WE START?</p>
+      <div class="suggestions" aria-label="Conversation starters">
+        <button type="button" data-question="Help me build a simple L'Oréal skincare routine. Ask about my skin type and budget first."><span>01</span> Skincare <span aria-hidden="true">↗</span></button>
+        <button type="button" data-question="Help me choose L'Oréal makeup for an everyday look. Ask about my skin type, finish, and budget first."><span>02</span> Makeup <span aria-hidden="true">↗</span></button>
+        <button type="button" data-question="Help me build a L'Oréal haircare routine. Ask about my hair texture and concerns first."><span>03</span> Haircare <span aria-hidden="true">↗</span></button>
+        <button type="button" data-question="Help me explore fragrances from L'Oréal Group brands. Ask about my scent preferences and occasion first."><span>04</span> Fragrance <span aria-hidden="true">↗</span></button>
+      </div>
+      <p class="small-note">Designed around your preferences.<br>Ask about a product, a concern, or a whole routine.</p>
+    </aside>
+    <section class="chat-panel" aria-label="Beauty advisor chat">
+      <div class="panel-header"><div><span class="advisor-icon" aria-hidden="true">✦</span><strong>Your beauty advisor</strong></div><span id="connectionStatus" class="connection">Checking connection</span></div>
+      <div id="latestQuestion" class="latest-question" hidden><span class="eyebrow">YOUR LATEST QUESTION</span><p id="questionText"></p></div>
+      <div id="chatWindow" class="chat-window" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions text"></div>
+      <div id="errorPanel" class="error-panel" role="alert" hidden><p id="errorText"></p><button id="retryBtn" type="button">Try again</button></div>
+      <p id="typingStatus" class="typing-status" role="status" aria-live="polite"></p>
+      <form id="chatForm" class="chat-form">
+        <label class="visually-hidden" for="userInput">Your beauty question</label>
+        <textarea id="userInput" name="message" rows="1" maxlength="2000" placeholder="Tell me what you're looking for…" required aria-describedby="inputHelp"></textarea>
+        <button id="sendBtn" type="submit" aria-label="Send message"><span aria-hidden="true">↑</span></button>
+      </form>
+      <div class="input-help" id="inputHelp">Enter to send · Shift + Enter for a new line <span id="characterCount">0 / 2000</span></div>
+      <p class="privacy-note">AI can make mistakes. Check product labels and local availability. Avoid sharing sensitive personal information.</p>
+    </section>
+  </main>
+  <footer><span>STUDENT PROJECT · MICHAEL KIM</span><span>Independent educational prototype. Not an official L'Oréal service.</span><a href="https://www.loreal.com/" target="_blank" rel="noopener noreferrer">Explore L'Oréal <span aria-hidden="true">↗</span></a></footer>
+</body>
 </html>
